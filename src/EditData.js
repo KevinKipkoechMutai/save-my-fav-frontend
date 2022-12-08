@@ -9,7 +9,7 @@ export default function EditData({id, title, category, description, image_url, h
   const handleShow = () => setShow(true);
 
   function handleUpdate() {
-    fetch(`/my_favorites/${id}`, {
+    fetch(`https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

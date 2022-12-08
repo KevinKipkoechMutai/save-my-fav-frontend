@@ -2,27 +2,29 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
+const initialState = {
+  title: "",
+  category: "",
+  description: "",
+  image_url: ""
+}
+
 export default function CreateData({onAddItem}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [title, setTitle] = React.useState("")
-  const [category, setCategory] = React.useState("")
-  const [description, setDescription] = React.useState("")
-  const [image_url, setImageUrl] = React.useState("")
+  const [formData, setFormData] = React.useState(initialState)
 
+
+  function handleChange(e) {
+    setFormData({...formData, [e.target.id]: e.target.value})
+  }
 
   function handlePost(e) {
     e.preventDefault()
-    const formData = {
-      title: title,
-      category: category,
-      description: description,
-      image_url: image_url
-    }
-    fetch('/my_favorites', {
+    fetch('https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -30,8 +32,14 @@ export default function CreateData({onAddItem}) {
       },
       body: JSON.stringify(formData),
     })
-    .then(res => res.json())
-    .then(newItem => onAddItem(newItem))
+    setFormData({
+      title: "",
+      category: "",
+      description: "",
+      image_url: ""
+    })
+    onAddItem(formData)
+    console.log(formData)
   }
 
 
@@ -54,8 +62,8 @@ export default function CreateData({onAddItem}) {
                 </div>
                 <div className="md:w-2/3">
                 <input onChange={
-                  (e) => setTitle(e.target.value)
-                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="title" type="text" value={title} name="title" required/>
+                  handleChange
+                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="title" type="text" value={formData.title} name="title" required/>
                 </div>
             </div>
             <div className="md:flex md:items-center mb-6">
@@ -66,8 +74,8 @@ export default function CreateData({onAddItem}) {
                 </div>
                 <div className="md:w-2/3">
                 <input onChange={
-                  (e) => setCategory(e.target.value)
-                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="category" type="text" value={category} name="category" required/>
+                  handleChange
+                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="category" type="text" value={formData.category} name="category" required/>
                 </div>
             </div>
             <div className="md:flex md:items-center mb-6">
@@ -78,8 +86,8 @@ export default function CreateData({onAddItem}) {
                 </div>
                 <div className="md:w-2/3">
                 <input onChange={
-                  (e) => setDescription(e.target.value)
-                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="description" type="text" value={description} name="category" required/>
+                  handleChange
+                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="description" type="text" value={formData.description} name="category" required/>
                 </div>
             </div>
             <div className="md:flex md:items-center mb-6">
@@ -90,8 +98,8 @@ export default function CreateData({onAddItem}) {
                 </div>
                 <div className="md:w-2/3">
                 <input onChange={
-                  (e) => setImageUrl(e.target.value)
-                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="image_url" type="text" value={image_url} name="image_url" required/>
+                  handleChange
+                } className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="image_url" type="text" value={formData.image_url} name="image_url" required/>
                 </div>
             </div>
             <button className='btn btn-primary' type='submit' form='editmodal' onClick={handlePost}>Create</button>
