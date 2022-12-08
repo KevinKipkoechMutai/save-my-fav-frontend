@@ -1,4 +1,4 @@
-[
+{"my_favorites": [
     {
         "id": 1,
         "title": "The Hobbit",
@@ -35,4 +35,4 @@
         "created_at": "2022-12-08T09:57:08.211Z",
         "updated_at": "2022-12-08T09:57:08.211Z"
     }
-]
+]}
