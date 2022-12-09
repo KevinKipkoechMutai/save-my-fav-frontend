@@ -6,13 +6,15 @@ export default function Card({id, image_url, title, category, description, cardD
     function handleDelete(id) {
         const newCardData = cardData.filter(lst => lst.id !== id)
         setCardData(newCardData)
-        fetch(`https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites/${id}`, {
+        fetch(`/my_favorites/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             },
         })
     }
+
+
 
     return (
         <div className="card">

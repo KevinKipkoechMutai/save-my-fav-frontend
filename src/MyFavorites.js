@@ -6,7 +6,7 @@ export default function MyFavorites() {
     const [cardData, setCardData] = React.useState([])
 
     React.useEffect(() => {
-        fetch('https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites')
+        fetch('/my_favorites')
         .then(res => res.json())
         .then(data => {
             console.log(data)
@@ -29,11 +29,12 @@ export default function MyFavorites() {
         setCardData(updatedItems)
     }
 
-    console.log(cardData)
+    //console.log(cardData)
     const cardInfo = Array.from(cardData).map((item) => {
+        console.log(item)
         return (
             <Card 
-                key = {item.id}
+                key={item.id}
                 {...item}
                 cardData = {cardData}
                 setCardData = {setCardData}
