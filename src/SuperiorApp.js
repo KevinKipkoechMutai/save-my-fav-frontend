@@ -10,13 +10,11 @@ export default function SuperiorApp() {
     return (
         <>
         <Navbar/>
-        
-            <Routes>
-                <Route path="/" element={<Homepage/>}/>
-                <Route path="/app" element={<App/>}/>
-                <Route path="/contact" element={<Contact/>}/>
-            </Routes>
-        
+        <Routes>
+          <Route path='/' element={<Homepage/>}/>
+          <Route path='/app' element={<App/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+        </Routes>  
         <Footer />
         </>
 

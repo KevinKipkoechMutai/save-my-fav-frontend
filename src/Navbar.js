@@ -11,13 +11,13 @@ export default function Navbar() {
             <nav className="nav">
                 <ul className="nav-links">
                     <li>
-                        <Link to='/'>Home</Link>
+                        <Link className="links" to='/'>Home</Link>
                     </li>
                     <li>
-                        <Link to='/app'>My Favs</Link>
+                        <Link className="links" to='/app'>My Favorites</Link>
                     </li>
                     <li>
-                        <Link to='/contact'>Contact Us</Link>
+                        <Link className="links" to='/contact'>Contact Us</Link>
                     </li>
                 </ul>
             </nav>

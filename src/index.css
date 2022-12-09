@@ -134,3 +134,44 @@ footer {
   gap: 30px;
   margin-top: 20px;
 }
+
+.links {
+  text-decoration: none;
+  color: #000;
+}
+
+.links:hover {
+  color: blueviolet;
+}
+
+.my-inputs, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.my-submit {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.my-submit:hover {
+  background-color: #45a049;
+}
+
+.contacts {
+  border-radius: 5px;
+  background: url('https://img.freepik.com/free-vector/beige-soft-gradient-background-vintage-style_53876-117408.jpg?w=2000');
+  padding: 20px;
+  width: 60%;
+  margin-left: 20%;
+}
