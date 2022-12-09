@@ -6,7 +6,7 @@ export default function MyFavorites() {
     const [cardData, setCardData] = React.useState([])
 
     React.useEffect(() => {
-        fetch('/my_favorites')
+        fetch('https://my-backend-production-cc33.up.railway.app/my_favorites')
         .then(res => res.json())
         .then(data => {
             console.log(data)

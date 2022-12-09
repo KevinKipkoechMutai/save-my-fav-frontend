@@ -24,7 +24,7 @@ export default function EditData({onAddItem, handleUpdateItem}) {
 
   function handlePost(e) {
     e.preventDefault()
-    fetch('/my_favorites', {
+    fetch('https://my-backend-production-cc33.up.railway.app/my_favorites', {
       method: 'PATCH',
       headers: {
         'Accept': 'application/json',
