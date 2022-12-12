@@ -5,17 +5,15 @@ export default function Card({id, image_url, title, category, description, cardD
     
     function handleDelete(id) {
         const newCardData = cardData.filter(lst => lst.id !== id)
-        setCardData(newCardData)
-        fetch(`https://my-backend-production-cc33.up.railway.app/my_favorites/${id}`, {
+        
+        fetch(`/my_favorites/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
             },
         })
+        setCardData(newCardData)
     }
-
-
-
     return (
         <div className="card">
             <img className="card--image" alt='described card' src={image_url}/>

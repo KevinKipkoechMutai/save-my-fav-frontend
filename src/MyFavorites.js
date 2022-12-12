@@ -6,13 +6,20 @@ export default function MyFavorites() {
     const [cardData, setCardData] = React.useState([])
 
     React.useEffect(() => {
-        fetch('https://my-backend-production-cc33.up.railway.app/my_favorites')
-        .then(res => res.json())
+        fetch('https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites')
+        .then(res => {
+            if (res.status === 200) {
+                return res.json()
+            } else {
+                return Promise.reject(res)
+            }
+        })
         .then(data => {
             console.log(data)
-           return (setCardData(data))
+            setCardData(data)
         })
-      }, [])
+      }, [setCardData])
+      
     
     function handleAddItem(newItem) {
         setCardData([...cardData, newItem])

@@ -21,9 +21,12 @@ code {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px;
+  margin: 0;
   width: 100%;
-  padding: 0 40px;
+  height: 90px;
+  padding: 40px;
+  background-color: #cebbdd;
+
 }
 
 .nav {
@@ -49,9 +52,10 @@ code {
 }
 
 .my-favs {
-  margin: 40px;
+  margin: 0;
   width: 100%;
   padding: 50px;
+  background: url('https://img.freepik.com/free-vector/beige-soft-gradient-background-vintage-style_53876-117408.jpg?w=2000');
 }
 
 footer {
@@ -67,7 +71,7 @@ footer {
   height: 400px;
   flex-wrap: wrap;
   border-radius: 5px;
-  margin: 10px;
+  margin: auto;
   border: 1px #fff;
  
 }
@@ -87,7 +91,7 @@ footer {
 }
 
 .card--image {
-  height: 55%;
+  height: 200px;
   width: 100%;
   border-radius: 5px;
 }

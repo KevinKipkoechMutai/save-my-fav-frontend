@@ -1,6 +1,6 @@
 import React from "react"
-import LoginModal from "./LoginModal"
-import SignUpModal from "./SignupModal"
+// import LoginModal from "./LoginModal"
+// import SignUpModal from "./SignupModal"
 import { Link } from 'react-router-dom'
 
 
@@ -21,10 +21,7 @@ export default function Navbar() {
                     </li>
                 </ul>
             </nav>
-            <div>
-                <SignUpModal />
-                <LoginModal />
-            </div>
+            
         </header>
     )
 }

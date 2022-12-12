@@ -24,7 +24,7 @@ export default function EditData({onAddItem, handleUpdateItem}) {
 
   function handlePost(e) {
     e.preventDefault()
-    fetch('https://my-backend-production-cc33.up.railway.app/my_favorites', {
+    fetch('https://my-json-server.typicode.com/KevinKipkoechMutai/save-my-fav-frontend/my_favorites', {
       method: 'PATCH',
       headers: {
         'Accept': 'application/json',
